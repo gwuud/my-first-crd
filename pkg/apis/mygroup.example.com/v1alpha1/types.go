@@ -31,4 +31,3 @@ type MyResourceList struct {
 
 	Items []MyResource `json:"items"`
 }
-"k8s.io/apimachinery/pkg/runtime/schema"
