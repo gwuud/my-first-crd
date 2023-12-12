@@ -1,6 +1,9 @@
 package v1alpha1
 
-import metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+import (
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime/schema"
+)
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +genclient
@@ -16,6 +19,10 @@ type MyResource struct {
 type MyResourceSpec struct {
 	Image   string `json:"image"`
 	Species string `json:"species"`
+}
+
+func (m *MyResourceSpec) GetObjectKind() schema.ObjectKind {
+	return &schema.ObjectKind{}
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
