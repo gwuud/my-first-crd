@@ -21,9 +21,7 @@ type MyResourceSpec struct {
 	Species string `json:"species"`
 }
 
-func (m *MyResourceSpec) GetObjectKind() schema.ObjectKind {
-	return &schema.ObjectKind{}
-}
+func (m *MyResourceSpec) GetObjectKind() schema.ObjectKind {}
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +genclient
@@ -33,3 +31,4 @@ type MyResourceList struct {
 
 	Items []MyResource `json:"items"`
 }
+"k8s.io/apimachinery/pkg/runtime/schema"
